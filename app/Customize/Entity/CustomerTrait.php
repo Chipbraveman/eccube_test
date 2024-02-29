@@ -22,28 +22,53 @@ use Eccube\Annotation\EntityExtension;
  */
 trait CustomerTrait {
 
-    /**
+      /**
      * @var string|null
      *
-     * @ORM\Column(name="fax", type="string", nullable=true)
+     * @ORM\Column(name="category", type="string", nullable=true)
      */
-    private $fax;
+    private $category;
 
     /**
      * @return string|null
      */
-    public function getFax()
+    public function getCategory()
     {
-        return $this->fax;
+        return $this->category;
     }
 
     /**
-     * @param string|null $fax
+     * @param string|null $category
      * @return CustomerTrait
      */
-    public function setFax($fax)
+    public function setCategory($category)
     {
-        $this->fax = $fax;
+        $this->category = $category;
+        return $this;
+    }
+
+      /**
+     * @var string|null
+     *
+     * @ORM\Column(name="partner", type="string", nullable=true)
+     */
+    private $partner;
+
+    /**
+     * @return string|null
+     */
+    public function getPartner()
+    {
+        return $this->partner;
+    }
+
+    /**
+     * @param string|null $category
+     * @return CustomerTrait
+     */
+    public function setpartner($partner)
+    {
+        $this->partner = $partner;
         return $this;
     }
 }

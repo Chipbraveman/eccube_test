@@ -14,7 +14,10 @@ class EntryTypeExtension extends AbstractTypeExtension
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('fax', TextType::class, [
+        $builder->add('category', TextType::class, [
+            'required' => false,
+        ])
+        ->add('partner', TextType::class, [
             'required' => false,
         ]);
     }

@@ -68,12 +68,23 @@ file that was distributed with this source code.
                         </dl>
                         <dl>
                             <dt>
-                                {{ form_label(form.fax, 'Fax', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                {{ form_label(form.category, 'Category', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
-                                <div class="ec-halfInput{{ has_errors(form.fax) ? ' error' }}">
-                                    {{ form_widget(form.fax) }}
-                                    {{ form_errors(form.fax) }}
+                                <div class="ec-halfInput{{ has_errors(form.category) ? ' error' }}">
+                                    {{ form_widget(form.category) }}
+                                    {{ form_errors(form.category) }}
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                {{ form_label(form.partner, 'Partner', { 'label_attr': { 'class': 'ec-label' }}) }}
+                            </dt>
+                            <dd>
+                                <div class="ec-halfInput{{ has_errors(form.partner) ? ' error' }}">
+                                    {{ form_widget(form.partner) }}
+                                    {{ form_errors(form.partner) }}
                                 </div>
                             </dd>
                         </dl>
