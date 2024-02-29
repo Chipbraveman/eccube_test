@@ -6,6 +6,7 @@ use Eccube\Form\Type\Front\EntryType;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class EntryTypeExtension extends AbstractTypeExtension
 {
@@ -15,10 +16,16 @@ class EntryTypeExtension extends AbstractTypeExtension
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('category', TextType::class, [
-            'required' => false,
+            'required' => true,
+            'constraints' => [
+                new Assert\NotBlank(),
+              ]
         ])
         ->add('partner', TextType::class, [
-            'required' => false,
+            'required' => true,
+            'constraints' => [
+                new Assert\NotBlank(),
+              ]
         ]);
     }
 
