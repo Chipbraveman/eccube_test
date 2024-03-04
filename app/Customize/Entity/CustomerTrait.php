@@ -22,53 +22,119 @@ use Eccube\Annotation\EntityExtension;
  */
 trait CustomerTrait {
 
-      /**
+    /**
      * @var string|null
      *
-     * @ORM\Column(name="category", type="string", nullable=true)
+     * @ORM\Column(name="transaction", type="string", nullable=true)
      */
-    private $category;
+    private $transaction;
+
+     /**    
+     * @var string|null
+     *
+     * @ORM\Column(name="customer_code01", type="string", length=255)
+     */
+    private $customer_code01;
+    
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="customer_code02", type="string", length=255)
+     */
+    private $customer_code02;
 
     /**
-     * @return string|null
+     * @var string|null
+     *
+     * @ORM\Column(name="store", type="string", length=255)
      */
-    public function getCategory()
+    private $store;
+
+     /**
+     * @var string|null
+     *
+     * @ORM\Column(name="company_kana", type="string", length=255)
+     */
+    private $company_kana;
+    
+    //transaction
+    public function getTransaction()
     {
-        return $this->category;
+        return $this->transaction;
     }
 
     /**
-     * @param string|null $category
+     * @param string|null $transaction
      * @return CustomerTrait
      */
-    public function setCategory($category)
+    public function setTransaction($transaction)
     {
-        $this->category = $category;
+        $this->transaction = $transaction;
         return $this;
     }
 
-      /**
-     * @var string|null
-     *
-     * @ORM\Column(name="partner", type="string", nullable=true)
-     */
-    private $partner;
-
-    /**
-     * @return string|null
-     */
-    public function getPartner()
+    //customer_code01
+    public function getCustomerCode01()
     {
-        return $this->partner;
+        return $this->customer_code01;
     }
 
     /**
-     * @param string|null $category
+     * @param string|null $customer_code01
      * @return CustomerTrait
      */
-    public function setpartner($partner)
+    public function setCustomerCode01($customer_code01)
     {
-        $this->partner = $partner;
+        $this->customer_code01 = $customer_code01;
         return $this;
     }
+
+    //customer_code02
+    public function getCustomerCode02()
+    {
+        return $this->customer_code02;
+    }
+
+    /**
+     * @param string|null $customer_code02
+     * @return CustomerTrait
+     */
+    public function setCustomerCode02($customer_code02)
+    {
+        $this->customer_code02 = $customer_code02;
+        return $this;
+    }
+
+     //store
+     public function getStore()
+     {
+         return $this->store;
+     }
+ 
+     /**
+      * @param string|null $store
+      * @return CustomerTrait
+      */
+     public function setStore($store)
+     {
+         $this->store = $store;
+         return $this;
+     }
+
+     //Company_kana
+     public function getCompanyKana()
+     {
+         return $this->company_kana;
+     }
+ 
+     /**
+      * @param string|null $company_kana
+      * @return CustomerTrait
+      */
+     public function setCompanyKana($company_kana)
+     {
+         $this->company_kana = $company_kana;
+         return $this;
+     }
+
 }

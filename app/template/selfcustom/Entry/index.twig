@@ -31,27 +31,37 @@ file that was distributed with this source code.
                     <div class="ec-borderedDefs">
                         <dl>
                             <dt>
-                                {{ form_label(form.name, 'お名前', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                {{ form_label(form.transaction, '既にお取引がありますか？', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
-                                <div class="ec-halfInput{{ has_errors(form.name.name01, form.name.name02) ? ' error'}}">
-                                    {{ form_widget(form.name.name01, { 'attr': { 'placeholder': '姓' }}) }}
-                                    {{ form_widget(form.name.name02, { 'attr': { 'placeholder': '名' }}) }}
-                                    {{ form_errors(form.name.name01) }}
-                                    {{ form_errors(form.name.name02) }}
+                                <div class="ec-radio{{ has_errors(form.transaction) ? ' error' }}">
+                                    {{ form_widget(form.transaction) }}
+                                    {{ form_errors(form.transaction) }}
                                 </div>
                             </dd>
                         </dl>
                         <dl>
                             <dt>
-                                {{ form_label(form.kana, 'お名前(カナ)', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                {{ form_label(form.customer_code01, '既にお客様コードをお持ちの方はご記入ください
+', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
-                                <div class="ec-halfInput{{ has_errors(form.kana.kana01, form.kana.kana02) ? ' error'}}">
-                                    {{ form_widget(form.kana.kana01, { 'attr': { 'placeholder': 'セイ' }}) }}
-                                    {{ form_widget(form.kana.kana02, { 'attr': { 'placeholder': 'メイ' }}) }}
-                                    {{ form_errors(form.kana.kana01) }}
-                                    {{ form_errors(form.kana.kana02) }}
+                                <div class="ec-halfInput{{ has_errors(form.customer_code01, form.customer_code02) ? ' error'}}">
+                                    {{ form_widget(form.customer_code01, { 'attr': { 'placeholder': '4桁' }}) }}
+                                    {{ form_widget(form.customer_code02, { 'attr': { 'placeholder': '2桁' }}) }}
+                                    {{ form_errors(form.customer_code01) }}
+                                    {{ form_errors(form.customer_code02) }}
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                {{ form_label(form.store, '既にお取引がありますか？', { 'label_attr': { 'class': 'ec-label' }}) }}
+                            </dt>
+                            <dd>
+                                <div class="ec-radio{{ has_errors(form.store) ? ' error' }}">
+                                    {{ form_widget(form.store) }}
+                                    {{ form_errors(form.store) }}
                                 </div>
                             </dd>
                         </dl>
@@ -68,23 +78,12 @@ file that was distributed with this source code.
                         </dl>
                         <dl>
                             <dt>
-                                {{ form_label(form.category, 'Category', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                {{ form_label(form.company_kana, '会社名（カナ）', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
-                                <div class="ec-halfInput{{ has_errors(form.category) ? ' error' }}">
-                                    {{ form_widget(form.category) }}
-                                    {{ form_errors(form.category) }}
-                                </div>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                {{ form_label(form.partner, 'Partner', { 'label_attr': { 'class': 'ec-label' }}) }}
-                            </dt>
-                            <dd>
-                                <div class="ec-halfInput{{ has_errors(form.partner) ? ' error' }}">
-                                    {{ form_widget(form.partner) }}
-                                    {{ form_errors(form.partner) }}
+                                <div class="ec-halfInput{{ has_errors(form.company_kana) ? ' error' }}">
+                                    {{ form_widget(form.company_kana) }}
+                                    {{ form_errors(form.company_kana) }}
                                 </div>
                             </dd>
                         </dl>
@@ -116,6 +115,32 @@ file that was distributed with this source code.
                                 <div class="ec-input{{ has_errors(form.address.addr02) ? ' error' }}">
                                     {{ form_widget(form.address.addr02,  { 'attr': { 'placeholder': '番地・ビル名(例：西梅田1丁目6-8)' }}) }}
                                     {{ form_errors(form.address.addr02) }}
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                {{ form_label(form.name, 'ご担当者', { 'label_attr': { 'class': 'ec-label' }}) }}
+                            </dt>
+                            <dd>
+                                <div class="ec-halfInput{{ has_errors(form.name.name01, form.name.name02) ? ' error'}}">
+                                    {{ form_widget(form.name.name01, { 'attr': { 'placeholder': '姓' }}) }}
+                                    {{ form_widget(form.name.name02, { 'attr': { 'placeholder': '名' }}) }}
+                                    {{ form_errors(form.name.name01) }}
+                                    {{ form_errors(form.name.name02) }}
+                                </div>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                {{ form_label(form.kana, 'ご担当者(カナ)', { 'label_attr': { 'class': 'ec-label' }}) }}
+                            </dt>
+                            <dd>
+                                <div class="ec-halfInput{{ has_errors(form.kana.kana01, form.kana.kana02) ? ' error'}}">
+                                    {{ form_widget(form.kana.kana01, { 'attr': { 'placeholder': 'セイ' }}) }}
+                                    {{ form_widget(form.kana.kana02, { 'attr': { 'placeholder': 'メイ' }}) }}
+                                    {{ form_errors(form.kana.kana01) }}
+                                    {{ form_errors(form.kana.kana02) }}
                                 </div>
                             </dd>
                         </dl>
@@ -163,41 +188,6 @@ file that was distributed with this source code.
                                         'type': 'password'
                                     }) }}
                                     {{ form_errors(form.password.second) }}
-                                </div>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                {{ form_label(form.birth, '生年月日', { 'label_attr': {'class': 'ec-label' }}) }}
-                            </dt>
-                            <dd>
-                                <div class="ec-birth{{ has_errors(form.birth) ? ' error' }}">
-                                    {{ form_widget(form.birth.year) }}<span>/</span>
-                                    {{ form_widget(form.birth.month) }}<span>/</span>
-                                    {{ form_widget(form.birth.day) }}
-                                    {{ form_errors(form.birth) }}
-                                </div>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                {{ form_label(form.sex, '性別', { 'label_attr': { 'class': 'ec-label' }}) }}
-                            </dt>
-                            <dd>
-                                <div class="ec-radio{{ has_errors(form.sex) ? ' error' }}">
-                                    {{ form_widget(form.sex) }}
-                                    {{ form_errors(form.sex) }}
-                                </div>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>
-                                {{ form_label(form.job, '職業', { 'label_attr': {'class': 'ec-label' }}) }}
-                            </dt>
-                            <dd>
-                                <div class="ec-select{{ has_errors(form.job) ? ' error' }}">
-                                    {{ form_widget(form.job) }}
-                                    {{ form_errors(form.job) }}
                                 </div>
                             </dd>
                         </dl>

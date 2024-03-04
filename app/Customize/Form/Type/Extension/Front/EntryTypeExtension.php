@@ -3,9 +3,13 @@
 namespace Customize\Form\Type\Extension\Front;
 
 use Eccube\Form\Type\Front\EntryType;
+use Eccube\Form\Type\KanaType;
+use Google\Service\Texttospeech\Resource\Text;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\ChoiceList\ChoiceList;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class EntryTypeExtension extends AbstractTypeExtension
@@ -15,18 +19,44 @@ class EntryTypeExtension extends AbstractTypeExtension
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('category', TextType::class, [
+        $builder->add('transaction', ChoiceType::class, [
             'required' => true,
             'constraints' => [
                 new Assert\NotBlank(),
-              ]
+            ],
+            'choices'  => [
+                '売掛のお客様' => 'accounts',
+                '現金会員（プランツクラブ）のお客様' => 'cash',
+                '新規' => 'new',
+            ],
+            'expanded' => true,
+            'multiple' => false,
         ])
-        ->add('partner', TextType::class, [
+        ->add('store', ChoiceType::class, [
             'required' => true,
             'constraints' => [
                 new Assert\NotBlank(),
-              ]
-        ]);
+            ],
+            'choices'  => [
+                '大田店' => 'ota',
+                '世田谷店' => 'setagaya',
+                '横浜店' => 'yokohama',
+                '大阪店' => 'osaka',
+                '名古屋松原店' => 'matsubara',
+                '名古屋名港店' => 'meiko',
+            ],
+            'expanded' => true,
+            'multiple' => false,
+        ])
+        ->add('company_kana', TextType::class, [
+            'required' => false,
+            ])
+        ->add('customer_code01', TextType::class, [
+            'required' => false,
+            ])
+        ->add('customer_code02', TextType::class, [
+            'required' => false,
+            ]);
     }
 
 
