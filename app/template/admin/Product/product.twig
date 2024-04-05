@@ -16,6 +16,7 @@ file that was distributed with this source code.
 {% block sub_title %}{{ 'admin.product.product_management'|trans }}{% endblock %}
 
 {% form_theme form '@admin/Form/bootstrap_4_horizontal_layout.html.twig' %}
+
 {% block stylesheet %}
     <link rel="stylesheet" href="{{ asset('assets/css/fileupload/jquery.fileupload.css', 'admin') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/fileupload/jquery.fileupload-ui.css', 'admin') }}">
@@ -465,7 +466,21 @@ file that was distributed with this source code.
                                         </div>
                                     </div>
                                 </div>
-
+                                <div class="row">
+                                        <div class="col-3">
+                                            <div class="d-inline-block" data-tooltip="true" data-placement="top"
+                                                 title="{{ 'tooltip.product.delivery_duration'|trans }}">
+                                                <span>店舗名</span>
+                                                <i class="fa fa-question-circle fa-lg ml-1"></i>
+                                            </div>
+                                        </div>
+                                        <div class="col mb-2">
+                                            <div>
+                                                {{ form_widget(form.store_name) }}
+                                                {{ form_errors(form.store_name) }}
+                                            </div>
+                                        </div>
+                                    </div>
                                 {% if has_class == false %}
                                     <div class="row">
                                         <div class="col-3">
