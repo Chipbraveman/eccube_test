@@ -11,30 +11,30 @@ use Eccube\Annotation as Eccube;
 trait ProductTrait
 {
     /**
-     * @ORM\Column(type="string", nullable=true)
-     * @Eccube\FormAppend(
-     *  auto_render=true,
-     *  options={
-     *   "required": false,
-     *   "label":"メーカー"
-     *  }
-     * )
+     * store_name.
+     *
+     * dtb_Product.store_name
+     *
+     * @var string|null
+     * @ORM\Column(name="store_name", type="text", nullable=true)
      */
-    public $store_name;
+    private $store_name;
 
-    //transaction
+    //store_name
     public function getStoreName()
     {
-        return $this->store_name;
+        $name = json_decode($this->store_name);
+        return $name;
     }
 
     /**
      * @param string|null $store_name
-     * @return CustomerTrait
+     * @return ProductTrait
      */
     public function setStoreName($store_name)
     {
-        $this->transaction = $store_name;
+        $name = json_encode($store_name);
+        $this->store_name = $name;
         return $this;
     }
 }
