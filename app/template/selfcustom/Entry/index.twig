@@ -42,15 +42,15 @@ file that was distributed with this source code.
                         </dl>
                         <dl>
                             <dt>
-                                {{ form_label(form.customer_code01, '既にお客様コードをお持ちの方はご記入ください
+                                {{ form_label(form.code, '既にお客様コードをお持ちの方はご記入ください
 ', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
-                                <div class="ec-halfInput{{ has_errors(form.customer_code01, form.customer_code02) ? ' error'}}">
-                                    {{ form_widget(form.customer_code01, { 'attr': { 'placeholder': '4桁' }}) }}
-                                    {{ form_widget(form.customer_code02, { 'attr': { 'placeholder': '2桁' }}) }}
-                                    {{ form_errors(form.customer_code01) }}
-                                    {{ form_errors(form.customer_code02) }}
+                                <div class="ec-halfInput{{ has_errors(form.code.code01, form.code.code02) ? ' error'}}">
+                                    {{ form_widget(form.code.code01, { 'attr': { 'placeholder': '4桁' }}) }}
+                                    {{ form_widget(form.code.code02, { 'attr': { 'placeholder': '2桁' }}) }}
+                                    {{ form_errors(form.code.code01) }}
+                                    {{ form_errors(form.code.code02) }}
                                 </div>
                             </dd>
                         </dl>

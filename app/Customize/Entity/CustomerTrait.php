@@ -32,16 +32,16 @@ trait CustomerTrait {
      /**    
      * @var string|null
      *
-     * @ORM\Column(name="customer_code01", type="string", length=255)
+     * @ORM\Column(name="code01", type="string", length=255)
      */
-    private $customer_code01;
+    private $code01;
     
     /**
      * @var string|null
      *
-     * @ORM\Column(name="customer_code02", type="string", length=255)
+     * @ORM\Column(name="code02", type="string", length=255)
      */
-    private $customer_code02;
+    private $code02;
 
     /**
      * @var string|null
@@ -73,35 +73,35 @@ trait CustomerTrait {
         return $this;
     }
 
-    //customer_code01
-    public function getCustomerCode01()
+    //code01
+    public function getCode01()
     {
-        return $this->customer_code01;
+        return $this->code01;
     }
 
     /**
-     * @param string|null $customer_code01
+     * @param string|null $code01
      * @return CustomerTrait
      */
-    public function setCustomerCode01($customer_code01)
+    public function setCode01($code01)
     {
-        $this->customer_code01 = $customer_code01;
+        $this->code01 = $code01;
         return $this;
     }
 
-    //customer_code02
-    public function getCustomerCode02()
+    //code02
+    public function getCode02()
     {
-        return $this->customer_code02;
+        return $this->code02;
     }
 
     /**
-     * @param string|null $customer_code02
+     * @param string|null $code02
      * @return CustomerTrait
      */
-    public function setCustomerCode02($customer_code02)
+    public function setCode02($code02)
     {
-        $this->customer_code02 = $customer_code02;
+        $this->code02 = $code02;
         return $this;
     }
 

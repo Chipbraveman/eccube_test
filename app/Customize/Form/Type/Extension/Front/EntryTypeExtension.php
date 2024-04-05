@@ -3,14 +3,12 @@
 namespace Customize\Form\Type\Extension\Front;
 
 use Eccube\Form\Type\Front\EntryType;
-use Eccube\Form\Type\KanaType;
-use Google\Service\Texttospeech\Resource\Text;
 use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\ChoiceList\ChoiceList;
 use Symfony\Component\Validator\Constraints as Assert;
+use Customize\Form\Type\Extension\Front\CustomerCodeType;
 
 class EntryTypeExtension extends AbstractTypeExtension
 {
@@ -51,12 +49,9 @@ class EntryTypeExtension extends AbstractTypeExtension
         ->add('company_kana', TextType::class, [
             'required' => false,
             ])
-        ->add('customer_code01', TextType::class, [
+        ->add('code', CustomerCodeType::class, [
             'required' => false,
-            ])
-        ->add('customer_code02', TextType::class, [
-            'required' => false,
-            ]);
+        ]);
     }
 
 
