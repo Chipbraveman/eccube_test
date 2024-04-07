@@ -23,7 +23,7 @@ trait ProductTrait
     //store_name
     public function getStoreName()
     {
-        $name = json_decode($this->store_name);
+        $name = explode(',', $this->store_name);
         return $name;
     }
 
@@ -33,7 +33,7 @@ trait ProductTrait
      */
     public function setStoreName($store_name)
     {
-        $name = json_encode($store_name);
+        $name = implode(',', $store_name);
         $this->store_name = $name;
         return $this;
     }

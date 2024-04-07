@@ -12,8 +12,11 @@ file that was distributed with this source code.
 
 <div class="ec-headerSearch">
     <form method="get" class="searchform" action="{{ path('product_list') }}">
+        <div>
+            {{ form_widget(form.store) }}
+        </div>
         <div class="ec-headerSearch__category">
-            <div class="ec-select ec-select_search">
+            <div class="ec-select ec-select_search ec-select_midpart">
                 {{ form_widget(form.category_id, {'id': null, 'attr': {'class': 'category_id'}}) }}
             </div>
         </div>

@@ -44,7 +44,6 @@ class SearchProductController extends AbstractController
         $builder = $this->formFactory
             ->createNamedBuilder('', SearchProductBlockType::class)
             ->setMethod('GET');
-
         $event = new EventArgs(
             [
                 'builder' => $builder,
