@@ -18,6 +18,8 @@ use Symfony\Component\Form\AbstractTypeExtension;
 use Symfony\Component\Form\FormBuilderInterface;
 use Eccube\Form\Type\SearchProductType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Eccube\Entity\Tag;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class SearchProductTypeExtension extends AbstractTypeExtension
 {
@@ -51,7 +53,16 @@ class SearchProductTypeExtension extends AbstractTypeExtension
             'expanded' => true,
             'multiple' => true,
         ]);
-       
+        $builder->add('tag', EntityType::class, [
+                'class' => Tag::class,
+                'required' => false,
+                'choice_label' => 'name',
+                'expanded' => true,
+                'multiple' => true,
+                'placeholder' => false,
+                'constraints' => [
+                ],
+            ]);
     }
 
     /**

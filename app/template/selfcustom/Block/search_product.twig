@@ -13,6 +13,9 @@ file that was distributed with this source code.
 <div class="ec-headerSearch">
     <form method="get" class="searchform" action="{{ path('product_list') }}">
         <div>
+            {{ form_widget(form.tag) }}
+        </div>
+        <div>
             {{ form_widget(form.store) }}
         </div>
         <div class="ec-headerSearch__category">

@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Eccube\Repository\CategoryRepository;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Eccube\Entity\Tag;
 
 /**
  * タグの検索フォームを追加
@@ -58,6 +59,23 @@ class SearchProductBlockTypeExtension extends AbstractTypeExtension
             'expanded' => true,
             'multiple' => true,
         ]);
+        $builder
+             ->add(
+                'tag',
+                EntityType::class,
+                [
+                    'class' => Tag::class,
+                    'required' => false,
+                    'choice_label' => 'name',
+                    'expanded' => true,
+                    'multiple' => true,
+                    'placeholder' => false,
+                    'constraints' => [
+                    ],
+                ]
+            )
+
+        ;
     }
 
     /**

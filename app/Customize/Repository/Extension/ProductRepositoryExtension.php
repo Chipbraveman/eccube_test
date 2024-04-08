@@ -6,6 +6,8 @@ use Eccube\Repository\ProductRepository;
 use Eccube\Repository\QueryKey;
 use Eccube\Util\StringUtil;
 use Eccube\Entity\Product;
+use Doctrine\Common\Collections\ArrayCollection;
+use Eccube\Entity\Tag;
 
 class ProductRepositoryExtension extends ProductRepository
 {
@@ -61,6 +63,23 @@ class ProductRepositoryExtension extends ProductRepository
             $qb
                 ->andWhere($qb->expr()->like('p.store_name', ':store'))
                 ->setParameter('store', '%' . $store . '%');
+        }
+
+        //tag
+        if (isset($searchData['tag'])) {
+
+            if ($searchData['tag'] instanceof ArrayCollection) {
+                if (count($searchData['tag'])) {
+                    $ids = $searchData['tag']->map(function ($var) {return $var->getId();})->toArray();
+                    $qb->leftJoin('p.ProductTag', 'product_tag')
+                       ->leftJoin('product_tag.Tag', 'tag')
+                       ->andWhere($qb->expr()->in('tag.id', $ids));
+                }
+            } else if ($searchData['tag'] instanceof Tag){
+                $qb->leftJoin('p.ProductTag', 'product_tag')
+                   ->leftJoin('product_tag.Tag', 'tag')
+                   ->andWhere($qb->expr()->eq('tag.id', $searchData['tag']->getId()));
+            }
         }
 
         // Order By
