@@ -362,6 +362,9 @@ class CsvExportService
         $config = $this->eccubeConfig;
 
         return function ($value) use ($config) {
+            if(is_array($value)){
+                $value = implode(',', $value);
+            }
             return mb_convert_encoding(
                 (string) $value, $config['eccube_csv_export_encoding'], 'UTF-8'
             );

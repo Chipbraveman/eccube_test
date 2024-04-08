@@ -347,9 +347,9 @@ class CsvImportController extends AbstractCsvImportController
                             }
                         }
 
-                        if (isset($row[$headerByKey['store']])) {
-                            if (StringUtil::isNotBlank($row[$headerByKey['store']])) {
-                                $Product->setStoreName(StringUtil::trimAll($row[$headerByKey['store']]));
+                        if (isset($row[$headerByKey['store_name']])) {
+                            if (StringUtil::isNotBlank($row[$headerByKey['store_name']])) {
+                                $Product->setStoreName(StringUtil::trimAll($row[$headerByKey['store_name']]));
                             } else {
                                 $Product->setStoreName(null);
                             }
@@ -1547,9 +1547,9 @@ class CsvImportController extends AbstractCsvImportController
                 'description' => 'admin.product.product_csv.tax_rate_description',
                 'required' => false,
             ],
-            trans('admin.product.product_csv.store_col') => [
-                'id' => 'store',
-                'description' => 'admin.product.product_csv.store_description',
+            trans('admin.product.product_csv.store_name_col') => [
+                'id' => 'store_name',
+                'description' => 'admin.product.product_csv.store_name_description',
                 'required' => false,
             ],
         ];
