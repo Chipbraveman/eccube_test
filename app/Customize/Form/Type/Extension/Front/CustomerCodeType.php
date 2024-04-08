@@ -99,29 +99,21 @@ class CustomerCodeType extends AbstractType
             'options' => [],
             'lastcode_options' => [
                 'attr' => [
-                    'placeholder' => 'common.last_name',
+                    'placeholder' => '2桁',
                 ],
                 'constraints' => [
                     new Assert\Length([
-                        'max' => $this->eccubeConfig['eccube_name_len'],
-                    ]),
-                    new Assert\Regex([
-                        'pattern' => '/^[^\s ]+$/u',
-                        'message' => 'form_error.not_contain_spaces',
+                        'max' => $this->eccubeConfig['eccube_code02_len'],
                     ]),
                 ],
             ],
             'firstcode_options' => [
                 'attr' => [
-                    'placeholder' => 'common.first_name',
+                    'placeholder' => '4桁',
                 ],
                 'constraints' => [
                     new Assert\Length([
-                        'max' => $this->eccubeConfig['eccube_name_len'],
-                    ]),
-                    new Assert\Regex([
-                        'pattern' => '/^[^\s ]+$/u',
-                        'message' => 'form_error.not_contain_spaces',
+                        'max' => $this->eccubeConfig['eccube_code01_len'],
                     ]),
                 ],
             ],

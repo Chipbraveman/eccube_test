@@ -32,28 +32,28 @@ trait CustomerTrait {
      /**    
      * @var string|null
      *
-     * @ORM\Column(name="code01", type="string", length=255)
+     * @ORM\Column(name="code01", type="string", length=255, nullable=true)
      */
     private $code01;
     
     /**
      * @var string|null
      *
-     * @ORM\Column(name="code02", type="string", length=255)
+     * @ORM\Column(name="code02", type="string", length=255, nullable=true)
      */
     private $code02;
 
     /**
      * @var string|null
      *
-     * @ORM\Column(name="store", type="string", length=255)
+     * @ORM\Column(name="store", type="string", length=255,  nullable=true)
      */
     private $store;
 
      /**
      * @var string|null
      *
-     * @ORM\Column(name="company_kana", type="string", length=255)
+     * @ORM\Column(name="company_kana", type="string", length=255,  nullable=true)
      */
     private $company_kana;
     

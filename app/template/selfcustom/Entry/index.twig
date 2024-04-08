@@ -42,8 +42,7 @@ file that was distributed with this source code.
                         </dl>
                         <dl>
                             <dt>
-                                {{ form_label(form.code, '既にお客様コードをお持ちの方はご記入ください
-', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                {{ form_label(form.code, '既にお客様コードをお持ちの方はご記入ください', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
                                 <div class="ec-halfInput{{ has_errors(form.code.code01, form.code.code02) ? ' error'}}">
@@ -56,7 +55,7 @@ file that was distributed with this source code.
                         </dl>
                         <dl>
                             <dt>
-                                {{ form_label(form.store, '既にお取引がありますか？', { 'label_attr': { 'class': 'ec-label' }}) }}
+                                {{ form_label(form.store, 'ご利用店舗を選択ください', { 'label_attr': { 'class': 'ec-label' }}) }}
                             </dt>
                             <dd>
                                 <div class="ec-radio{{ has_errors(form.store) ? ' error' }}">

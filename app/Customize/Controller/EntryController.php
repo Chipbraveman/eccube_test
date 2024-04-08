@@ -133,7 +133,6 @@ class EntryController extends AbstractController
 
         /** @var $Customer \Eccube\Entity\Customer */
         $Customer = $this->customerRepository->newCustomer();
-
         /* @var $builder \Symfony\Component\Form\FormBuilderInterface */
         $builder = $this->formFactory->createBuilder(EntryType::class, $Customer);
 
@@ -152,6 +151,7 @@ class EntryController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // dd($request->get('mode'));
             switch ($request->get('mode')) {
                 case 'confirm':
                     log_info('会員登録確認開始');
@@ -167,12 +167,10 @@ class EntryController extends AbstractController
 
                 case 'complete':
                     log_info('会員登録開始');
-
                     $encoder = $this->encoderFactory->getEncoder($Customer);
                     $salt = $encoder->createSalt();
                     $password = $encoder->encodePassword($Customer->getPassword(), $salt);
                     $secretKey = $this->customerRepository->getUniqueSecretKey();
-
                     $Customer
                         ->setSalt($salt)
                         ->setPassword($password)

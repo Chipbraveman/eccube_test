@@ -24,8 +24,9 @@ file that was distributed with this source code.
                 <form method="post" action="{{ url('entry') }}">
                     {{ form_widget(form._token) }}
                     <p>{{ '下記の内容で登録してもよろしいでしょうか？
-よろしければ、一番下の「会員登録をする」ボタンをクリックしてください。
-'|trans|nl2br }}</p>
+                        よろしければ、一番下の「会員登録をする」ボタンをクリックしてください。
+                        '|trans|nl2br }}
+                    </p>
                     <div class="ec-borderedDefs">
                         <dl>
                             <dt>
@@ -56,6 +57,44 @@ file that was distributed with this source code.
                             <dd>
                                 {{ form.company_name.vars.data }}
                                 {{ form_widget(form.company_name, { type : 'hidden' }) }}
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                {{ form_label(form.company_kana, '会社名（カナ）', { 'label_attr': { 'class': 'ec-label' }}) }}
+                            </dt>
+                            <dd>
+                                {{ form.company_kana.vars.data }}
+                                {{ form_widget(form.company_kana, { type : 'hidden' }) }}
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                {{ form_label(form.transaction, '既にお取引がありますか？', { 'label_attr': { 'class': 'ec-label' }}) }}
+                            </dt>
+                            <dd>
+                                {{ form.transaction.vars.data }}
+                                {{ form_widget(form.transaction, { type : 'hidden' }) }}
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                {{ form_label(form.code, '既にお客様コードをお持ちの方はご記入ください', { 'label_attr': { 'class': 'ec-label' }}) }}
+                            </dt>
+                            <dd>
+                                {{ form.code.code01.vars.data }}
+                                {{ form.code.code02.vars.data }}
+                                {{ form_widget(form.code.code01, { type : 'hidden' }) }}
+                                {{ form_widget(form.code.code02, { type : 'hidden' }) }}
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>
+                                {{ form_label(form.store, 'ご利用店舗を選択ください', { 'label_attr': { 'class': 'ec-label' }}) }}
+                            </dt>
+                            <dd>
+                                {{ form.store.vars.data }}
+                                {{ form_widget(form.store, { type : 'hidden' }) }}
                             </dd>
                         </dl>
                         <dl>
