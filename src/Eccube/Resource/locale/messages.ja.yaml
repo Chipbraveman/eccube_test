@@ -754,7 +754,7 @@ admin.product.product_csv.delivery_fee_description: 商品ごとの送料設定�
 admin.product.product_csv.tax_rate_col: 税率
 admin.product.product_csv.tax_rate_description: 商品別税率機能設定が有効の場合、0以上の数値を設定
 admin.product.product_csv.store_name_col: 店舗名
-admin.product.product_csv.store_name_description: ''
+admin.product.product_csv.store_name_description: 複数の店舗の場合は、店舗名をコンマで区切って「」で囲みます。
 
 # カテゴリCSV雛形
 admin.product.category_csv.category_id_col: カテゴリID

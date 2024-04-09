@@ -33,8 +33,13 @@ trait ProductTrait
      */
     public function setStoreName($store_name)
     {
-        $name = implode(',', $store_name);
-        $this->store_name = $name;
+        if(is_string($store_name)){
+            $this->store_name = $store_name;
+        }
+        else {
+            $name = implode(',', $store_name);
+            $this->store_name = $name;
+        }
         return $this;
     }
 }

@@ -754,7 +754,7 @@ admin.product.product_csv.delivery_fee_description: If the shipping charge is se
 admin.product.product_csv.tax_rate_col: Tax Rate
 admin.product.product_csv.tax_rate_description: If the Tax Rate is set per product, set the value more than 0
 admin.product.product_csv.store_name_col: Store Name
-admin.product.product_csv.store_name_description: ''
+admin.product.product_csv.store_name_description: For multiple stores, separate the store names with commas and enclose them in quotation marks.
 
 # Category CSV Templates
 admin.product.category_csv.category_id_col: Category ID
